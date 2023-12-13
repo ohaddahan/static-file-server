@@ -29,7 +29,7 @@ async fn main() {
     tracing_subscriber::registry()
         .with(
             tracing_subscriber::EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| "example_static_file_server=debug,tower_http=debug".into()),
+                .unwrap_or_else(|_| "static_file_server=debug,tower_http=debug".into()),
         )
         .with(tracing_subscriber::fmt::layer())
         .init();
@@ -57,7 +57,7 @@ async fn serve(app: Router, port: u16) {
     let addr = SocketAddr::from(([127, 0, 0, 1], port));
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     colored_msg(
-        &format!("listening on {}", listener.local_addr().unwrap()),
+        &format!("Listening on {}", listener.local_addr().unwrap()),
         Color::White,
     )
     .unwrap_or_default();
