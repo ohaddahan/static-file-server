@@ -43,7 +43,7 @@ async fn main() {
     }
 
     colored_msg(
-        &format!("Serving dir {} at http://localhost:3000", args.dir),
+        &format!("Serving dir {} at http://localhost:{}", args.dir, args.port),
         Color::Green,
     )
     .unwrap_or_default();
