@@ -5,6 +5,7 @@ use std::io::{self, Write};
 use std::net::SocketAddr;
 use std::process::exit;
 use termcolor::{Color, ColorChoice, ColorSpec, StandardStream, WriteColor};
+use tower_http::cors::CorsLayer;
 use tower_http::{services::ServeDir, trace::TraceLayer};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
@@ -48,7 +49,9 @@ async fn main() {
     )
     .unwrap_or_default();
     tokio::join!(serve(
-        Router::new().nest_service("/", ServeDir::new(args.dir)),
+        Router::new()
+            .layer(CorsLayer::permissive())
+            .nest_service("/", ServeDir::new(args.dir)),
         args.port
     ),);
 }
