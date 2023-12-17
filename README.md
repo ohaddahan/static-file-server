@@ -6,4 +6,4 @@ Build and use `static-file-server --dir <> --port <>`.
 
 ## Cross Compile
 
-* `cargo build --target "x86_64-unknown-linux-musl"`
+* `cargo build --release --target "x86_64-unknown-linux-musl"`
