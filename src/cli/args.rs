@@ -3,12 +3,19 @@ use clap::Parser;
 #[derive(Parser, Debug, Clone)]
 #[command(author, version, about, long_about = None)]
 pub struct CliArgs {
-    #[arg(long)]
+    /// Directory to serve
+    #[arg(long, required = true, default_value = ".")]
     pub dir: String,
-    #[arg(long, default_value = "3000")]
+    /// Port to listen on, use 0 to select a random port
+    #[arg(long, default_value = "3000", required = false)]
     pub port: u16,
-    #[arg(long, default_value = "true")]
+    /// Enable CORS [default: true]
+    #[arg(long, action)]
     pub cors: bool,
-    #[arg(long, default_value = "true")]
-    pub compression: bool,
+    /// Enable dir compression [default: true]
+    #[arg(long, action)]
+    pub compression_dir: bool,
+    /// Enable response compression [default: true]
+    #[arg(long, action)]
+    pub compression_response: bool,
 }
