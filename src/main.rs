@@ -1,10 +1,6 @@
-mod cli;
-mod startup;
-mod terminal;
-
-use crate::cli::CliArgs;
-use crate::startup::Server;
 use clap::Parser;
+use static_file_server_lib::cli::CliArgs;
+use static_file_server_lib::startup::Server;
 
 #[tokio::main]
 async fn main() {
@@ -19,5 +15,4 @@ async fn main() {
             println!("Server task finished");
         }
     }
-    // tokio::join!(server_task,);
 }
