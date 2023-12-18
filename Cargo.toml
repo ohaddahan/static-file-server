@@ -5,6 +5,7 @@ version = "0.0.1"
 edition = "2021"
 repository = "https://github.com/ohaddahan/static-file-server"
 description = "A simple static file server"
+documentation = "https://docs.rs/crate/static-file-server"
 license = "MIT"
 
 [dependencies]
