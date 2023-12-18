@@ -1,9 +1,10 @@
 [package]
 name = "static-file-server"
-version = "0.1.0"
+authors = ["Ohad Dahan <ohaddahan@gmail.com>"]
+version = "0.0.1"
 edition = "2021"
+repository = "https://github.com/ohaddahan/static-file-server"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 axum = { version = "0.7.2" }
