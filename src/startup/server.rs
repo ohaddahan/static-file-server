@@ -31,8 +31,8 @@ impl Server {
             .with(tracing_subscriber::fmt::layer())
             .init();
 
-        let routes = Server::routes(&cli_args)?;
-        let listener = Server::listen(&cli_args).await?;
+        let routes = Server::routes(cli_args)?;
+        let listener = Server::listen(cli_args).await?;
         let port = listener.local_addr()?.port();
 
         Ok(Server {
@@ -102,10 +102,9 @@ impl Server {
             ),
             Color::Green,
         )?;
-        Ok(
-            axum::serve(self.listener, self.routes.layer(TraceLayer::new_for_http()))
-                .await
-                .unwrap(),
-        )
+        axum::serve(self.listener, self.routes.layer(TraceLayer::new_for_http()))
+            .await
+            .unwrap();
+        Ok(())
     }
 }
