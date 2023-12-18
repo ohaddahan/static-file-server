@@ -4,7 +4,8 @@ authors = ["Ohad Dahan <ohaddahan@gmail.com>"]
 version = "0.0.1"
 edition = "2021"
 repository = "https://github.com/ohaddahan/static-file-server"
-
+description = "A simple static file server"
+license = "MIT"
 
 [dependencies]
 axum = { version = "0.7.2" }
