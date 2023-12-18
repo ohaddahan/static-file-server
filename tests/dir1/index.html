@@ -1,12 +1,43 @@
-<html>
+<html lang="en">
 <head>
-    <script type="module" crossorigin="anonymous">
-        import {ethers} from "https://cdn.ethers.io/lib/ethers-5.2.esm.min.js";
+    <title>Test Page</title>
+    <script>
+        function getDateTime() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            if (month.toString().length === 1) {
+                month = '0' + month;
+            }
+            if (day.toString().length === 1) {
+                day = '0' + day;
+            }
+            if (hour.toString().length === 1) {
+                hour = '0' + hour;
+            }
+            if (minute.toString().length === 1) {
+                minute = '0' + minute;
+            }
+            if (second.toString().length === 1) {
+                second = '0' + second;
+            }
+            var dateTime = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+            return dateTime;
+        }
 
-        console.log("hello")
+        // example usage: realtime clock
+        setInterval(function () {
+            currentTime = getDateTime();
+            document.getElementById("digital-clock").innerHTML = currentTime;
+        }, 1000);
     </script>
 </head>
 <body>
-Hello
+Hello<br/>
+<div id="digital-clock" class="clock" style="font-size: 20px; color: #000000; font-weight: bold;"></div>
 </body>
 </html>
